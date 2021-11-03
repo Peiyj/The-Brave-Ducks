@@ -1,0 +1,276 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20213.21.0917.1006                               -->
+<workbook original-version='18.1' source-build='2021.3.1 (20213.21.0917.1006)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <_.fcp.AnimationOnByDefault.false...style>
+    <_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule element='animation'>
+      <_.fcp.AnimationOnByDefault.false...format attr='animation-on' value='ao-on' />
+    </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
+  </_.fcp.AnimationOnByDefault.false...style>
+  <datasources>
+    <datasource caption='Custom SQL Query (postgres)' inline='true' name='federated.0i5hxig1yqbdmk10p68k01ehbmjp' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='codd01.research.northwestern.edu' name='postgres.1t3pcfo0dlggqz1e21bwp0wkjqyn'>
+            <connection authentication='username-password' class='postgres' dbname='postgres' one-time-sql='SELECT count(*), data_officerallegation.final_outcome&#10;FROM data_area,&#10;    data_allegation,&#10;    data_allegation_areas,&#10;    data_officerallegation&#10;where data_area.median_income is not null&#10;  and data_allegation_areas.area_id = data_area.id&#10;  and data_allegation_areas.allegation_id = data_allegation.crid&#10;  and data_allegation.crid = data_officerallegation.allegation_id&#10;  and data_allegation.is_officer_complaint = true&#10;  and cast(replace(substring(data_area.median_income, 2), &apos;,&apos;, &apos;&apos;) as int) &lt; 30000&#10;GROUP by data_officerallegation.final_outcome' port='5432' server='codd01.research.northwestern.edu' username='cpdbstudent' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation connection='postgres.1t3pcfo0dlggqz1e21bwp0wkjqyn' name='Custom SQL Query' type='text'><![CDATA[SELECT count(*), data_officerallegation.final_outcome
+FROM data_area,
+    data_allegation,
+    data_allegation_areas,
+    data_officerallegation
+where data_area.median_income is not null
+  and data_allegation_areas.area_id = data_area.id
+  and data_allegation_areas.allegation_id = data_allegation.crid
+  and data_allegation.crid = data_officerallegation.allegation_id
+  and data_allegation.is_officer_complaint = true
+  and cast(replace(substring(data_area.median_income, 2), ',', '') as int) << 30000
+GROUP by data_officerallegation.final_outcome]]></_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation connection='postgres.1t3pcfo0dlggqz1e21bwp0wkjqyn' name='Custom SQL Query' type='text'><![CDATA[SELECT count(*), data_officerallegation.final_outcome
+FROM data_area,
+    data_allegation,
+    data_allegation_areas,
+    data_officerallegation
+where data_area.median_income is not null
+  and data_allegation_areas.area_id = data_area.id
+  and data_allegation_areas.allegation_id = data_allegation.crid
+  and data_allegation.crid = data_officerallegation.allegation_id
+  and data_allegation.is_officer_complaint = true
+  and cast(replace(substring(data_area.median_income, 2), ',', '') as int) << 30000
+GROUP by data_officerallegation.final_outcome]]></_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <metadata-records>
+          <metadata-record class='column'>
+            <remote-name>count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[count]</local-name>
+            <parent-name>[Custom SQL Query]</parent-name>
+            <remote-alias>count</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <precision>19</precision>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[_2050276966C24B50856C04D4F6138301]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>final_outcome</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[final_outcome]</local-name>
+            <parent-name>[Custom SQL Query]</parent-name>
+            <remote-alias>final_outcome</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <width>32</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <attributes>
+              <attribute datatype='string' name='TypeIsVarchar'>&quot;true&quot;</attribute>
+            </attributes>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[_2050276966C24B50856C04D4F6138301]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <_.fcp.ObjectModelTableType.true...column caption='Custom SQL Query' datatype='table' name='[__tableau_internal_object_id__].[_2050276966C24B50856C04D4F6138301]' role='measure' type='quantitative' />
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='Custom SQL Query' id='_2050276966C24B50856C04D4F6138301'>
+            <properties context=''>
+              <relation connection='postgres.1t3pcfo0dlggqz1e21bwp0wkjqyn' name='Custom SQL Query' type='text'><![CDATA[SELECT count(*), data_officerallegation.final_outcome
+FROM data_area,
+    data_allegation,
+    data_allegation_areas,
+    data_officerallegation
+where data_area.median_income is not null
+  and data_allegation_areas.area_id = data_area.id
+  and data_allegation_areas.allegation_id = data_allegation.crid
+  and data_allegation.crid = data_officerallegation.allegation_id
+  and data_allegation.is_officer_complaint = true
+  and cast(replace(substring(data_area.median_income, 2), ',', '') as int) << 30000
+GROUP by data_officerallegation.final_outcome]]></relation>
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='visualization'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run bold='true' fontcolor='#000000' fontname='Arial' fontsize='11'>Among the officer allegations with complaints filed by high income people, what is the allegation outcome?</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Custom SQL Query (postgres)' name='federated.0i5hxig1yqbdmk10p68k01ehbmjp' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0i5hxig1yqbdmk10p68k01ehbmjp'>
+            <column datatype='integer' name='[count]' role='measure' type='quantitative' />
+            <column datatype='string' name='[final_outcome]' role='dimension' type='nominal' />
+            <column-instance column='[final_outcome]' derivation='None' name='[none:final_outcome:nk]' pivot='key' type='nominal' />
+            <column-instance column='[count]' derivation='Sum' name='[sum:count:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0i5hxig1yqbdmk10p68k01ehbmjp].[sum:count:qk]' type='custom-interpolated'>
+              <color-palette custom='true' name='' type='ordered-sequential'>
+                <color>#f1f1f1</color>
+                <color>#ecd9d9</color>
+                <color>#e8c2c3</color>
+                <color>#e3acad</color>
+                <color>#df9798</color>
+                <color>#db8283</color>
+                <color>#d66e6f</color>
+                <color>#d25b5c</color>
+                <color>#cd484a</color>
+                <color>#c93738</color>
+                <color>#c52628</color>
+              </color-palette>
+            </encoding>
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='on' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <size column='[federated.0i5hxig1yqbdmk10p68k01ehbmjp].[sum:count:qk]' />
+              <color column='[federated.0i5hxig1yqbdmk10p68k01ehbmjp].[sum:count:qk]' />
+              <text column='[federated.0i5hxig1yqbdmk10p68k01ehbmjp].[none:final_outcome:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-line-first' value='true' />
+                <format attr='mark-labels-line-last' value='true' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='true' />
+                <format attr='mark-labels-mode' value='all' />
+                <format attr='mark-labels-range-scope' value='pane' />
+                <format attr='mark-labels-range-field' value='' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{0BCB2C66-9D78-427B-99A2-DE0F82787C53}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' maximized='true' name='visualization'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0i5hxig1yqbdmk10p68k01ehbmjp].[sum:count:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <highlight>
+          <color-one-way>
+            <field>[federated.0i5hxig1yqbdmk10p68k01ehbmjp].[none:final_outcome:nk]</field>
+          </color-one-way>
+        </highlight>
+      </viewpoint>
+      <simple-id uuid='{2BFF0B54-1D08-43A0-95E9-FCB567D052E9}' />
+    </window>
+  </windows>
+  <thumbnails>
+    <thumbnail height='192' name='visualization' width='192'>
+      iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS3GwHAAAACXBIWXMAAA7DAAAOwwHHb6hk
+      AAAJTUlEQVR4nO3dWVNb5x3H8e9BaBdCQhIWwWzeHWzHjnFDSbOUZNzppNPLzrQvp9PkVfSi
+      jWc6ven0op2mMxk7bhY7tuMd23gB7LALgQQI0H560TSTxEsSTIzj/+9zh84zh+fR8EXPOWiE
+      47qui4hRDZs9AZHNpADENAUgpjV+84GVG8MsfXZuM+YiT7mGUJhofz+1YnGzp7Jh7gtg6dw5
+      xt5+ZzPmIk85XzpNV2uK8vzCZk9lw2gLJKYpADHtkQGEj/wUX5Of4K5d9x0LHDhCIBH+ygNh
+      GhrAE23GaXAeeL7QoQG2/O63NO3u+vIxf0fHOqcum+3EqeP8+/wVitX6Q8esrhQoP/zw18zM
+      zVHboLl9V/ddA3yV4wvT1HeIuidCtegQ3dfF4ocfUC1U8Ke24ETKlG9kiPcfwG1pJ7B8i9zt
+      HNXsPE19h1gbuohn6y4CsQay751k9eIp/EkfyyMzNA8epT5zG8JJHF+A6mKB6OH9rAxdJLj3
+      CE5hktynl5/U8yDrkEx10OR1mZrPMzVxh1T7DpbnRpmvhTjc3croZIaoL0BLosC5W2OEAwE8
+      gRg7mx3u5Gt0RRsZHp9gz55DTI0NcSdX4TeDKTxPcA2PDIBynuKan+iuCHi7yZ++TNOBXvLX
+      8kR723ArSVzfJEsnP4AdL1IcP4On9zV8bc+xev4TQgcHqK3lWV1w8DgOtS/+6OwEmvAmYgR6
+      fsJKBgKpaYrVBL64B3d7J7XsBISCT2L98hiGb55nydvOm7srXJnM0cM0yaYo7fUKd2eniSW7
+      qUyPUvCX2b2vj/m7twg6FaZyK1weWaNxR5yXD+3j1vUrVON72R+ceeJreGQAlbk5ypPzBFqP
+      sDqaI/5KH0sfHcfb3M70H/9EQ6qbhkZofmOQpaERwgM/Y/n2NKXCGtH+1ylev0KtWqPuNvL/
+      d1yUJqegWqa+ssrqXIa1u7Pgi4CboRrYSTmTpZor4oQCT+QJkPUbODKI36lRdDx0x3O0tjQz
+      NnKZpmQ3hzrThMIhlsoJfGEvDX4vgVQSB4dCoUJH3ENrS4KAN0DquR4yI1cpRZJP/KLU+eZ7
+      gabfPabboPJAvnSarj/8/uG3QV2XxdVVmsPhBx9/CukukGwcx/lR/fCDAhDjFICYpgDENAUg
+      pikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUg
+      pikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUg
+      pikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUg
+      pikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUg
+      pikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUg
+      pikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDENAUg
+      pikAMU0BiGkKQExr3OwJyI9LeNcu/KXSZk9jwygA+V4qpRLVtbXNnsaG0RZITFMAYpoCkHVx
+      i3Pc+DxPYWGG0YlJsvnCl8dGxm6zWq5/8VWdfH4JqDI9k33guRbHb3Ly+giTk3dZWC5/+Xg+
+      n8f9xthiaYHJ6QIbRdcAsi6OP8HCzHmcoEMo2UlhZZmhix9TCbUR9xUJhSOc+Owi3Tu3c/z9
+      k7z51i/xFF3GRy+TrYTY0t7G+PA1Xj36FtXlGou5WaZqEVoqDXzy0VXSPTs4/8FxDg8epZad
+      oBxK0xEpc+bGdfY8f5T2DVqHXgFkfZwGwt46EwWIOiVmMuP4ojvwVJep1V1y2VmWVnJc+nyJ
+      gf4Bnu9sYW5uguVyC90tDeS8rQy+sJW5lf+d7mDvdi5dG2F2coQ9h19jKZulr7+fvvZGTlwa
+      Izub4V5+jV+81o93A5ehVwBZt22d7fgLXoKRIN0dYcbvXIVoO52pIN4Gl0SijY7tnZAbY3hi
+      ka6uHSzPjzGzFuLAriCBcppkIwRSKYLRBC/1bqOtvZtLF07TufcQvsIEF6Zg8GAXpWCSnhY4
+      dfkuh/e/tGFrcFzX/do2a/rdY4y9/c6GfQN5dvjSaXYe+7Nug4o8KxSAmKYAxDQFIKYpADFN
+      AYhpCkBMUwBimgIQ0xSAmKYAxDQFIKYpADFNAYhpCkBMUwBimgIQ0xSAmKYAxDQFIKYpADFN
+      AYhpCkBMUwBimgIQ0xSAmKYAxDQFIKYpADFNAYhpCkBMUwBimgIQ0xSAmKb/ESbfiy8SwePz
+      bfY0NowCkO+lWipRLZU2exobRlsgMU0BiGkKQNapzrULpzl57io1F8ZvXeHv771PtlB88HC3
+      zoXTJ/n40jB198FDvk25XF7/dB9C1wCyTlWS7Xuo3htisQyZVYdfv/Eyxz85x56OGDdm1jiy
+      t4dgcwuF/BKpWJWROQ9vvrqF7GwGT6OL69Y4feEmr/e/wJkLF+ja/SLRapZr02sc3NbKpatX
+      2XnwZTI3z+Jt3Y1TzrG9LcGJszcYfKWPKxev4sTSvPT8tnWvQgHIOvnIzw/RtLWXFj+MAR5v
+      kJCvgbn5eUZujvJcoonlsXtEmtOkklsZ2JfhP59eJBXwE4zUqTSEqLllFqbGae0d4POb55gZ
+      Gcb1R3DXetjX/wr3rl9hLrNIommF0vIC85lZfj7wAmdPH4dYH/7VzGOtQlsgWZ9anjNnh7k8
+      dImVch1fZZG//eOfRLZ0U6tWSSZaSWzpIDN+l+7udqgscf7aKF5/gJZYI9fuzBBrjlAprlCp
+      Vjn14fsEmtvYtq2LSCJNOpWiORSkJR4lFPRRWCsRb47RkYrxr+MfsbWnl+e2xEnEY4+1DMd1
+      3a/tyKbfPcbY2+881knl2eRLp9n9179859ugK7lpRudr7N+x9ZHjKkvzFPxx4v4n//tYWyD5
+      wYTjbeyPf/s4bzTBdxj2g9AWSExTAGKaAhDTFICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDT
+      FICYpgDENAUgpikAMU0BiGkKQExTAGKaAhDTFICYpgDEtPs+FSLQ003yV29twlTkadcYi9EY
+      DOI0PjsfJvJfMBKu7pX8T84AAAAASUVORK5CYII=
+    </thumbnail>
+  </thumbnails>
+</workbook>
