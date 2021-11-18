@@ -20,7 +20,7 @@ where data_area.median_income is not null
   and data_allegation_areas.area_id = data_area.id
   and data_allegation_areas.allegation_id = data_allegation.crid
   and data_allegation.crid = data_officerallegation.allegation_id
-  and cast(replace(substring(data_area.median_income, 2), ',', '') as int) > 30000
+  and cast(replace(substring(data_area.median_income, 2), ',', '') as int) >= 30000
   and cast(replace(substring(data_area.median_income, 2), ',', '') as int) < 75000;
 
 --What is the total number of officer allegations for all high income neighbors?
@@ -33,4 +33,4 @@ where data_area.median_income is not null
   and data_allegation_areas.area_id = data_area.id
   and data_allegation_areas.allegation_id = data_allegation.crid
   and data_allegation.crid = data_officerallegation.allegation_id
-  and cast(replace(substring(data_area.median_income, 2), ',', '') as int) > 75000;
+  and cast(replace(substring(data_area.median_income, 2), ',', '') as int) >= 75000;

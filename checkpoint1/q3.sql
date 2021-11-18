@@ -12,7 +12,6 @@ where data_area.median_income is not null
   and data_allegation_areas.area_id = data_area.id
   and data_allegation_areas.allegation_id = data_allegation.crid
   and data_allegation.most_common_category_id = data_allegationcategory.id
-  and data_allegation.is_officer_complaint = true
   and cast(replace(substring(data_area.median_income, 2), ',', '') as int) < 30000;
 
 
@@ -30,8 +29,7 @@ where data_area.median_income is not null
   and data_allegation_areas.area_id = data_area.id
   and data_allegation_areas.allegation_id = data_allegation.crid
   and data_allegation.most_common_category_id = data_allegationcategory.id
-  and data_allegation.is_officer_complaint = true
-  and cast(replace(substring(data_area.median_income, 2), ',', '') as int) > 30000
+  and cast(replace(substring(data_area.median_income, 2), ',', '') as int) >= 30000
   and cast(replace(substring(data_area.median_income, 2), ',', '') as int) < 75000;
 
 --What is the percentage of misconduct allegations (illegal search, use of force etc) out of all allegations for these high income neighborhoods?
@@ -48,5 +46,4 @@ where data_area.median_income is not null
   and data_allegation_areas.area_id = data_area.id
   and data_allegation_areas.allegation_id = data_allegation.crid
   and data_allegation.most_common_category_id = data_allegationcategory.id
-  and data_allegation.is_officer_complaint = true
-  and cast(replace(substring(data_area.median_income, 2), ',', '') as int) > 75000;
+  and cast(replace(substring(data_area.median_income, 2), ',', '') as int) >= 75000;
